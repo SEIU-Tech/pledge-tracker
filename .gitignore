@@ -1,0 +1,76 @@
+# ==============================================================================
+# Flask & Application Specific
+# ==============================================================================
+# The instance directory contains local configuration, keys, and SQLite databases.
+# DO NOT commit this folder to version control.
+instance/
+
+# If you prefer to keep the instance folder structure but ignore the files inside:
+# !instance/.gitignore
+
+# Ignore SQLite databases if they happen to be generated in the root
+*.sqlite
+*.db
+
+# ==============================================================================
+# Python Environment & Package Managers
+# ==============================================================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments (Used by standard python and uv under the hood)
+.venv/
+venv/
+ENV/
+env/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ==============================================================================
+# uv & Project Management
+# ==============================================================================
+# NOTE: DO NOT ignore 'uv.lock' or 'pyproject.toml'. They ensure your team 
+# and production environments use identical package versions.
+.uv/
+
+# ==============================================================================
+# Environments & Secrets
+# ==============================================================================
+# Sensitive local environment variables
+.env
+.venv
+env.ini
+*.env.local
+
+# ==============================================================================
+# Testing & IDEs
+# ==============================================================================
+# Pytest and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
