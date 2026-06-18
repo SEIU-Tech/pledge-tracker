@@ -1,13 +1,10 @@
 {
   "name": "Flask Workshop (uv + pyproject)",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
-
   "features": {
     "ghcr.io/devcontainers-extra/features/uv:1": {}
   },
-
   "postCreateCommand": "uv sync --system",
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -19,12 +16,19 @@
       }
     }
   },
-
   "forwardPorts": [5000],
   "portsAttributes": {
     "5000": {
       "label": "Flask App",
       "onAutoForward": "openPreview"
     }
-  }
+  },
+  "tasks": [
+    {
+      "label": "Run Flask Server",
+      "type": "shell",
+      "command": "uv run flask --app server run --debug --host=0.0.0.0",
+      "problemMatcher": []
+    }
+  ]
 }
