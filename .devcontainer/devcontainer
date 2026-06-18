@@ -28,7 +28,8 @@
       "label": "Run Flask Server",
       "type": "shell",
       "command": "uv run flask --app server run --debug --host=0.0.0.0",
-      "problemMatcher": []
+      "problemMatcher": [],
+      "runOn": "folderOpen"
     }
   ]
 }
