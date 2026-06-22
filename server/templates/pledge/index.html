@@ -1,0 +1,27 @@
+<!-- This tells Flask to use our base.html file as the "frame" for this content -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-container">
+  <h2>I pledge to strike!</h2>
+  
+  <!-- The action property tells the app which route to submit the form to. -->
+  <!-- The POST method tells the app what kind of request to expect. -->
+  <form action="{{ url_for('pledge.submit_pledge') }}" method="POST">
+    
+    <div class="form-group">
+      <label for="first_name">First Name</label>
+      <input type="text" id="first_name" name="first_name" placeholder="Jane" required>
+    </div>
+
+    <div class="form-group">
+      <label for="last_name">Last Name</label>
+      <input type="text" id="last_name" name="last_name" placeholder="Doe" required>
+    </div>
+
+    <button type="submit">Submit Pledge</button>
+    
+  </form>
+</div>
+
+{% endblock %}

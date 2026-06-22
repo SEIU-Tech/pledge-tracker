@@ -25,9 +25,9 @@ def create_app(test_config=None):
 
     db.init_app(app)
 
-    from . import home
+    from . import pledge
 
-    app.register_blueprint(home.bp)
+    app.register_blueprint(pledge.bp)
     app.add_url_rule("/", endpoint="index")
 
     # a simple page that says hello
