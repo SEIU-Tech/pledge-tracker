@@ -1,18 +1,31 @@
+<!-- This file contains the html elements that we want to show up on every page, such as the nav bar, notifications, and the footer. You can think of it as a frame that sits around the content of the page. When we change pages, the "middle stuff" like the form or the dashboard gets rendered into the BLOCK CONTENT tags, but frame always stays the same. -->
+
 <!doctype html>
+<!-- The title is shown in the browser tab -->
 <title>{% block title %}{% endblock %} - SEIU Pledge Collector</title>
+<!-- Here we import the css styles for the entire app -->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<!-- The nav bar will appear on every page -->
 <nav>
-  <h1>SEIU PLEDGE COLLECTOR</h1>
+  <h1>SEIU STRIKE PLEDGE COLLECTOR</h1>
   <ul>
-    <li>Links would go here.</li>
+    <li>Pledge to strike!</li>
+    <li>Dashboard</li>
   </ul>
 </nav>
+
+<!-- This section will contain the main content of the page -->
 <section class="content">
   <header>
     {% block header %}{% endblock %}
   </header>
+  <!-- This is where notifications will be shown if there are any -->
   {% for message in get_flashed_messages() %}
     <div class="flash">{{ message }}</div>
   {% endfor %}
+
+  <!-- The PAGE CONTENT ("middle stuff") is rendered here -->
+  <!-- This content changes with each page -->
   {% block content %}{% endblock %}
 </section>
