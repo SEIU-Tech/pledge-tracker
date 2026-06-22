@@ -14,17 +14,30 @@ def index():
 # Handle the data submission
 @bp.route("/submit-pledge", methods=["POST"])
 def submit_pledge():
-    # get the data from the form
+    # Get the data from the form
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]
 
     if not first_name or not last_name:
         flash("Both first and last name are required!")
-        return redirect(url_for("home.index"))
+        return redirect(url_for("pledge.index"))
 
-    # TODO: Save to SQLite database here
+    # Create the database connection
+    db = get_db()
 
-    flash(f"Thank you, {first_name}! Your strike pledge has been recorded.")
+    try:
+        # Insert the pledge into the database
+        db.execute(
+            "INSERT INTO pledges (first_name, last_name) VALUES (?, ?)",
+            (first_name, last_name),
+        )
+        db.commit()
+        flash(f"Thank you, {first_name}! Your strike pledge has been recorded.")
+    except Exception as e:
+        db.rollback()
+        flash("There was an error recording your pledge. Please try again.")
+        print("PROBLEM: ", e)
+    finally:
+        db.close()
 
-    # Redirect back to the form page after successful submission
     return redirect(url_for("pledge.index"))
