@@ -41,3 +41,13 @@ def submit_pledge():
         db.close()
 
     return redirect(url_for("pledge.index"))
+
+
+@bp.route("/pledges")
+def view_pledges():
+    db = get_db()
+    pledges = db.execute(
+        "SELECT id, first_name, last_name, created_at FROM pledges ORDER BY created_at DESC"
+    ).fetchall()
+    db.close()
+    return render_template("pledge/view_pledges.html", pledges=pledges)

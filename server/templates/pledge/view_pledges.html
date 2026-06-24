@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Strike Pledges</title>
+</head>
+<body>
+    <h1>Strike Pledges</h1>
+    
+    {% if pledges %}
+        <table border="1" cellpadding="10">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pledge in pledges %}
+                <tr>
+                    <td>{{ pledge.id }}</td>
+                    <td>{{ pledge.first_name }}</td>
+                    <td>{{ pledge.last_name }}</td>
+                    <td>{{ pledge.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><strong>Total Pledges:</strong> {{ pledges|length }}</p>
+    {% else %}
+        <p>No pledges yet. <a href="{{ url_for('pledge.index') }}">Be the first to sign!</a></p>
+    {% endif %}
+    
+    <p><a href="{{ url_for('pledge.index') }}">← Back to Pledge Form</a></p>
+</body>
+</html>
