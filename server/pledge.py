@@ -32,7 +32,7 @@ def submit_pledge():
             (first_name, last_name),
         )
         db.commit()
-        flash(f"Thank you, {first_name}! Your strike pledge has been recorded.")
+        flash(f"Thank you, {first_name}! Your strike pledge has been recorded. Share this page with your coworkers!")
     except Exception as e:
         db.rollback()
         flash("There was an error recording your pledge. Please try again.")
