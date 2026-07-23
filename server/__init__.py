@@ -37,9 +37,9 @@ def create_app(test_config=None):
         conn.commit()
         conn.close()
 
-    from . import pledge
+    from . import routes
 
-    app.register_blueprint(pledge.bp)
+    app.register_blueprint(routes.bp)
     app.add_url_rule("/", endpoint="index")
 
     # a simple page that says hello
