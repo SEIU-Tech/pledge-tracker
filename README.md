@@ -12,7 +12,7 @@ A sample app to demonstrate the basics of Flask.
 ## Getting Started
 
 ### Codespace launch
-1. click this button 👇
+1. click this button 👉
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/SEIU-Tech/pledge-tracker)
 2. Click the button that says "Create Codespace"
 3. In the terminal paste `uv run flask --app server run --debug`
