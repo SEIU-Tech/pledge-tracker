@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>All Strike Pledges</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}The New Page{% endblock %}
+
+{% block content %}
     <h1>Strike Pledges</h1>
     
     {% if pledges %}
@@ -33,5 +32,4 @@
     {% endif %}
     
     <p><a href="{{ url_for('pledge.index') }}">← Back to Pledge Form</a></p>
-</body>
-</html>
+{% endblock %}
