@@ -51,3 +51,8 @@ def view_pledges():
     ).fetchall()
     db.close()
     return render_template("pledge/view_pledges.html", pledges=pledges)
+
+
+@bp.route("/new-page")
+def new_page():
+    return render_template("pledge/new.html")
